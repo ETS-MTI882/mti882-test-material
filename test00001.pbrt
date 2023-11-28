@@ -1,0 +1,73 @@
+Film "rgb" "integer xresolution" [512] "integer yresolution" [512] "string filename" "output00001.exr"
+PixelFilter "box" "float xradius" [0.5] "float yradius" [0.5] 
+Accelerator "bvh" 
+"string splitmethod" "sah"
+"integer maxnodeprims" [4]
+Sampler "halton"
+"integer pixelsamples" [100]
+
+Integrator "path"
+"integer maxdepth" [1]
+
+Scale -1 1 1 #avoid the 'flipped image' bug..
+LookAt	0.0 -8.099034309387207 3.629617214202881
+	0.0 -7.156611442565918 3.295193672180176
+	0.0 0.3344235420227051 0.9424228668212891
+
+Camera "perspective"
+"float fov" [23.378738613787533]
+
+WorldBegin
+
+	# Material to test
+	# PBRT material definition:  https://pbrt.org/fileformat-v4#materials
+	# Exemple diffuse: 
+	MakeNamedMaterial "case"
+	 	"string type" "diffuse"  "rgb reflectance" [0.8 0.1 0.1]
+		# Example for conductor (GGX)
+		# "string type" "conductor" "float roughness" 0.5 "bool remaproughness" false "rgb reflectance" [0.8 0.1 0.1]
+		
+	AttributeBegin
+		Material "diffuse"  "rgb reflectance" [0.8 0.8 0.8]
+		Transform [1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 ]
+		Shape "plymesh" "string filename" ["meshes/00001/mitsuba_mat0.ply"]
+	AttributeEnd
+	
+
+	AttributeBegin
+		Material "diffuse"  "rgb reflectance" [0.8 0.8 0.8]
+		Transform [1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 ]
+		Shape "plymesh" "string filename" ["meshes/00001/mitsuba_mat1.ply"]
+	AttributeEnd
+	
+
+	AttributeBegin
+		NamedMaterial "case" 
+		Transform [1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 ]
+		Shape "plymesh" "string filename" ["meshes/00001/mitsuba_mat2.ply"]
+	AttributeEnd
+	
+
+	AttributeBegin
+		Transform [-1.000000 -0.000000 0.000000 0.000000 0.000000 0.782891 0.622159 0.000000 -0.000000 0.622159 -0.782891 0.000000 0.058636 -2.638632 4.620535 1.000000 ]
+		AreaLightSource "diffuse" "rgb L" [ 6.399999618530273 6.399999618530273 6.399999618530273 ]		
+		Shape "trianglemesh"
+		"point3 P" [
+		-1.0 -1.0 0.0 1.0 -1.0 0.0 1.0 1.0 0.0 -1.0 -1.0 0.0 1.0 1.0 0.0 -1.0 1.0 0.0		
+		]
+		"normal N" [
+		0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0		
+		]
+		"point2 uv" [
+		0.0 0.0 
+		1.0 0.0 
+		1.0 1.0 
+		0.0 0.0 
+		1.0 1.0 
+		0.0 1.0 
+		]
+		"integer indices" [
+		0 1 2 3 4 5 
+		]
+	AttributeEnd
+	
