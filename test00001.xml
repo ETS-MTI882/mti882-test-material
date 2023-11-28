@@ -23,9 +23,11 @@
 			/>
 		</transform>
 	</sensor>
+	<!-- Le materiaux ci-dessous a editer -->
 	<bsdf id="case" type="diffuse">
 		<rgb name="reflectance" value="0.8, 0.1, 0.1" />
 	</bsdf>
+	<!-- Ne pas toucher apres cette ligne -->
 	<bsdf id="default" type="diffuse">
 		<rgb name="reflectance" value="0.8, 0.8, 0.8" />
 	</bsdf>
