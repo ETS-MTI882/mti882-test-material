@@ -1,0 +1,122 @@
+<scene version="2.0.0">
+	<integrator type="path">
+		<integer name="max_depth" value="2" />
+		<boolean name="hide_emitters" value="false" />
+	</integrator>
+	<sensor type="thinlens">
+		<film type="hdrfilm">
+			<integer name="width" value="512" />
+			<integer name="height" value="512" />
+			<string name="file_format" value="openexr" />
+			<rfilter type="box" />
+		</film>
+		<float name="fov" value="23.378738613787533" />
+		<float name="aperture_radius" value="0.0" />
+		<sampler type="independent">
+			<integer name="sample_count" value="64" />
+		</sampler>
+		<transform name="to_world">
+			<lookat
+				origin="0.0, -8.099034309387207, 3.629617214202881"
+				target="0.0, -7.156611442565918, 3.295193672180176"
+				up="0.0, 0.3344235420227051, 0.9424228668212891"
+			/>
+		</transform>
+	</sensor>
+	<bsdf id="case" type="diffuse">
+		<rgb name="reflectance" value="0.8, 0.1, 0.1" />
+	</bsdf>
+	<bsdf id="default" type="diffuse">
+		<rgb name="reflectance" value="0.8, 0.8, 0.8" />
+	</bsdf>
+	<shape type="obj">
+		<string name="filename" value="meshes/00001/mitsuba_mat0.obj" />
+		<ref id="default" />
+		<transform name="to_world">
+            <matrix value="1.0,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			7.549790126404332e-08,
+			-1.0,
+			0.0,
+			0.0,
+			1.0,
+			7.549790126404332e-08,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			1.0" />
+        </transform>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="meshes/00001/mitsuba_mat1.obj" />
+		<ref id="default" />
+		<transform name="to_world">
+            <matrix value="1.0,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			7.549790126404332e-08,
+			-1.0,
+			0.0,
+			0.0,
+			1.0,
+			7.549790126404332e-08,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			1.0" />
+        </transform>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="meshes/00001/mitsuba_mat2.obj" />
+		<ref id="case" />
+		<transform name="to_world">
+            <matrix value=" 1.0,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			7.549790126404332e-08,
+			-1.0,
+			0.0,
+			0.0,
+			1.0,
+			7.549790126404332e-08,
+			0.0,
+			0.0,
+			0.0,
+			0.0,
+			1.0" />
+        </transform>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="meshes/00001/Plane_mat0.obj" />
+		<emitter type="area">
+			<rgb name="radiance" value="6.399999618530273, 6.399999618530273, 6.399999618530273"/>
+		</emitter>
+		<transform name="to_world">
+            <matrix value=" -1.0,
+			4.4013450661850584e-08,
+			-3.8122541923257813e-07,
+			0.058636244386434555,
+			-2.0272497636142361e-07,
+			0.7828911542892456,
+			0.6221587061882019,
+			-2.638631820678711,
+			3.2584136988589307e-07,
+			0.6221587061882019,
+			-0.7828911542892456,
+			4.620535373687744,
+			0.0,
+			0.0,
+			0.0,
+			1.0" />
+        </transform>
+	</shape>
+</scene>
