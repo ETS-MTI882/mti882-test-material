@@ -1,0 +1,10 @@
+{
+    "materials" : [
+        {
+            "type": "metal",
+            "ks": [0.8, 0.1, 0.1],
+            "name": "case",
+            "roughness": 0.3
+        }
+    ]
+}
