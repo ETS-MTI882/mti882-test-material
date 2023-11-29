@@ -37,14 +37,17 @@ base_mat = base["materials"]
 for m in base_mat:
     mat_name = m["name"]
     mats[mat_name] = m
+
+mat_added = []
+mat_replaced = []
 merge_mat = merge["materials"]
 for m in merge_mat:
     mat_name = m["name"]
     if mat_name in mats:
-        print("- Material {} is replaced".format(mat_name))
+        mat_replaced.append(mat_name)
         mats[mat_name] = m # Replace
     else:
-        print("- WARN: Material {} not found (added)".format(mat_name))
+        mat_added.append(mat_name)
         mats[mat_name] = m
 
 # Print all materials
@@ -55,6 +58,21 @@ for m in mats.keys():
     
 base["materials"] = list(mats.values())
 
+if len(mat_replaced) > 0:
+    print("")
+    print("Replacing materials:")
+    for m in mat_replaced:
+        print("- {}".format(m))
+
+if len(mat_added) > 0:
+    print("")
+    print("WARNING: Added materials:")
+    print("These materials were not in the base file, but were in the merge file")
+    for m in mat_added:
+        print("- {}".format(m))
+
+print("")
+print("Save file...")
 # Save the merged file
 with open(args.output_file, "w") as f:
     json.dump(base, f, indent=4)

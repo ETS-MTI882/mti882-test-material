@@ -11,6 +11,33 @@ Veuillez vous référer à la documentation pour la définition des matériaux :
 
 Les images pour le diffus se trouve dans le dossier `images`.
 
+## Script merge materiaux
+
+Le script `script/merge_materials.py`` permet de fusionner des fichiers de matériaux pour permettre d'editer plus facilement vos fichiers JSON. Voici comment utiliser le script:
+
+```bash
+usage: merge_materials.py [-h] base_file merge_file output_file
+
+positional arguments:
+  base_file
+  merge_file
+  output_file
+
+options:
+  -h, --help   show this help message and exit
+```
+
+Les parametres:
+- `base_file`: le fichier de base à prendre (format JSON)
+- `merge_file`: le fichier des BSDFs que l'on veut modifier
+- `output_file`: fichier de sortie
+
+**Attention:** Soyez vigilant quant aux messages affichés dans la console lors de l'exécution du script. 
+
+```bash
+python ./script/merge_materials.py ./test00001.json ./script/modified.json out.json
+```
+
 ## MTI882
 
 Pour éditer le matériau, ouvrez `test00001.json` et éditez le premier matériau (ligne 19) nommé "case".
