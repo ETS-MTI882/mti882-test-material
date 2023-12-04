@@ -5,6 +5,8 @@ Ce référentiel Git contient la scène de test pour les moteurs de rendu suivan
 - PBRT 4 (C++)
 - Mitsuba 3 (Python) _(* recommandé pour la comparaison)_
 
+D'autre part, ce répertoire contient des outils pour éditez vos scènes ou faire la conversion de scènes.
+
 Veuillez vous référer à la documentation pour la définition des matériaux : 
 - [PBRT File Format v4 - Materials](https://pbrt.org/fileformat-v4#materials)
 - [Mitsuba v3 - BSDFs](https://mitsuba.readthedocs.io/en/latest/src/generated/plugins_bsdfs.html)
@@ -72,7 +74,7 @@ Comparaison avec MTI882:
 Installation et génération. Vous devez avoir Python installer sur votre systeme. 
 ```bash
 pip install --user mitsuba
-python mitsuba3.py
+python mitsuba3.py --scene test00001.xml --output out.exr
 ```
 
 Pour éditer le matériau, ouvrez `test00001.xml` et éditez le premier matériau (ligne 27) nommé "case".
@@ -84,3 +86,17 @@ Rendu Mitsuba 3:
 Comparaison avec MTI882:
 
 ![Diffuse from MTI882](images/mitsuba3_diff.png)
+
+
+### Script conversion MTI882 -> Mitsuba3
+
+```bash
+python ./script/convert_mts3.py --input ./test00001.json --output test.xml
+```
+
+**Limitations:**
+- Ne supporte pas les textures
+- Assume que la scène à été exportée depuis Blender
+- Uniquement le support de diffus et area lights
+
+
