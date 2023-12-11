@@ -11,4 +11,4 @@ mi.set_variant('scalar_rgb')
 
 img = mi.render(mi.load_file(args.scene))
 
-mi.Bitmap(img).write(args.output)
+mi.util.write_bitmap(args.output, img)
